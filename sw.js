@@ -1,5 +1,5 @@
 
-const CACHE_NAME = 'treasapp-v22';
+const CACHE_NAME = 'treasapp-v23';
 
 // Comprehensive list of all files required for the app to function.
 // Since we use ES6 modules, every file is a separate network request.
@@ -115,7 +115,7 @@ self.addEventListener('fetch', event => {
         // If fetch fails and it's a navigation (main page), serve index.html
         if (event.request.mode === 'navigate') {
           return caches.match('./index.html').then(response => {
-            return response || caches.match('./');
+            return response || caches.match('./') || caches.match('index.html');
           });
         }
       });

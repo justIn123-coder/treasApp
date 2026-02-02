@@ -317,9 +317,9 @@ const AppContent: React.FC = () => {
         setIsInitialRestoring(true);
         setIsSyncComplete(false);
         try {
-          // Race the sync against a 5-second timeout to prioritize offline access
+          // Race the sync against a 2.5-second timeout to prioritize offline access
           const timeoutPromise = new Promise((_, reject) => 
-            setTimeout(() => reject(new Error('Sync timeout')), 5000)
+            setTimeout(() => reject(new Error('Sync timeout')), 2500)
           );
 
           await Promise.race([
